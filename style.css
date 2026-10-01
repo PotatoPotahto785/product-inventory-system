@@ -1,0 +1,53 @@
+*{box-sizing:border-box}
+:root{--text:#1f2937;--muted:#6b7280;--accent:#374151;--line:rgba(55,65,81,.15)}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;margin:0;min-height:100vh;color:var(--text);
+  background:linear-gradient(135deg,#e5e7eb,#f3f4f6 50%,#d1d5db);
+  background-attachment:fixed;position:relative;overflow-x:hidden;
+}
+/* faint neutral blobs so the glass still has depth */
+body::before,body::after{content:"";position:fixed;border-radius:50%;filter:blur(90px);z-index:0;opacity:.7}
+body::before{width:350px;height:350px;background:#cbd5e1;top:-80px;left:-80px}
+body::after{width:400px;height:400px;background:#e2e8f0;bottom:-120px;right:-100px}
+
+.container{
+  position:relative;z-index:1;max-width:900px;margin:40px auto;padding:28px;
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1px solid rgba(255,255,255,.8);border-radius:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,.08);
+}
+h1{margin-top:0;font-weight:600;letter-spacing:-.5px}
+
+table{width:100%;border-collapse:collapse;margin-top:18px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.4)}
+th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left}
+th{background:rgba(255,255,255,.6);font-weight:600;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:rgba(255,255,255,.6)}
+
+.btn{
+  display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:10px;
+  color:var(--accent);text-decoration:none;cursor:pointer;font-size:14px;
+  background:rgba(255,255,255,.6);transition:.2s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1);background:rgba(255,255,255,.9)}
+.add{background:var(--accent);color:#fff;border-color:var(--accent)}
+.add:hover{background:#1f2937}
+.edit{color:var(--accent)}
+.del{color:#b91c1c}
+.back{color:var(--muted)}
+
+form label{display:block;margin-top:14px;font-weight:600;font-size:14px}
+form input{
+  width:100%;padding:11px;margin-top:6px;color:var(--text);font-size:15px;
+  background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:10px;outline:none;
+}
+form input::placeholder{color:var(--muted)}
+form input:focus{background:#fff;border-color:var(--accent)}
+.msg{padding:12px;background:rgba(255,255,255,.7);border-left:3px solid var(--accent);border-radius:8px;margin-bottom:12px}
+.search{display:flex;gap:8px;margin-top:12px}
+.search input{flex:1;margin-top:0}
+
+@media(max-width:600px){
+  .container{margin:15px;padding:16px}
+  th,td{padding:8px;font-size:13px}
+}
